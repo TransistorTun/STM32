@@ -1,0 +1,7 @@
+../Lib/lcd_i2c.c:10:6:delay_us	16	static
+../Lib/lcd_i2c.c:17:6:lcd_i2c_init	24	static
+../Lib/lcd_i2c.c:51:6:lcd_send_cmd	32	static
+../Lib/lcd_i2c.c:66:6:lcd_send_data	32	static
+../Lib/lcd_i2c.c:82:6:lcd_set_cursor	24	static
+../Lib/lcd_i2c.c:89:6:lcd_send_string	16	static
+../Lib/lcd_i2c.c:94:6:lcd_clear	16	static
