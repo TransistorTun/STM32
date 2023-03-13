@@ -1,0 +1,10 @@
+11:01:04 **** Incremental Build of configuration Debug for project LCD_learn_ver1 ****
+make -j12 all 
+arm-none-eabi-size   LCD_learn_ver1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9872	     20	   1820	  11712	   2dc0	LCD_learn_ver1.elf
+Finished building: default.size.stdout
+ 
+
+11:01:05 Build Finished. 0 errors, 0 warnings. (took 359ms)
+
