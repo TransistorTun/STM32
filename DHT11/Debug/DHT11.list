@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018803  00000000  00000000  0002f480  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000e8a6  00000000  00000000  00047c83  2**0
+ 17 .debug_line   0000e8c6  00000000  00000000  00047c83  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008bcb1  00000000  00000000  00056529  2**0
+ 18 .debug_str    0008bca9  00000000  00000000  00056549  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000e21da  2**0
+ 19 .comment      00000050  00000000  00000000  000e21f2  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004950  00000000  00000000  000e222c  2**2
+ 20 .debug_frame  00004950  00000000  00000000  000e2244  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1184,9 +1184,9 @@ void DHT11_Start (void)
  8000d4e:	bd80      	pop	{r7, pc}
  8000d50:	40010800 	.word	0x40010800
 
-08000d54 <DHT_Check_Reponse>:
+08000d54 <DHT_Check_Response>:
 
-uint8_t DHT_Check_Reponse (void)
+uint8_t DHT_Check_Response (void)
 {
  8000d54:	b580      	push	{r7, lr}
  8000d56:	b082      	sub	sp, #8
@@ -1197,39 +1197,40 @@ uint8_t DHT_Check_Reponse (void)
 	delay_us(40);
  8000d5e:	2028      	movs	r0, #40	; 0x28
  8000d60:	f002 fa3c 	bl	80031dc <delay_us>
-	if (!(HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)))
+	if (!(HAL_GPIO_ReadPin (DHT11_PORT, DHT11_PIN)))
  8000d64:	2180      	movs	r1, #128	; 0x80
- 8000d66:	4811      	ldr	r0, [pc, #68]	; (8000dac <DHT_Check_Reponse+0x58>)
+ 8000d66:	4811      	ldr	r0, [pc, #68]	; (8000dac <DHT_Check_Response+0x58>)
  8000d68:	f000 fede 	bl	8001b28 <HAL_GPIO_ReadPin>
  8000d6c:	4603      	mov	r3, r0
  8000d6e:	2b00      	cmp	r3, #0
- 8000d70:	d10e      	bne.n	8000d90 <DHT_Check_Reponse+0x3c>
+ 8000d70:	d10e      	bne.n	8000d90 <DHT_Check_Response+0x3c>
 	{
 		delay_us(80);
  8000d72:	2050      	movs	r0, #80	; 0x50
  8000d74:	f002 fa32 	bl	80031dc <delay_us>
-		if ((HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN))) Response = 1;
+		if ((HAL_GPIO_ReadPin (DHT11_PORT, DHT11_PIN))) Response = 1;
  8000d78:	2180      	movs	r1, #128	; 0x80
- 8000d7a:	480c      	ldr	r0, [pc, #48]	; (8000dac <DHT_Check_Reponse+0x58>)
+ 8000d7a:	480c      	ldr	r0, [pc, #48]	; (8000dac <DHT_Check_Response+0x58>)
  8000d7c:	f000 fed4 	bl	8001b28 <HAL_GPIO_ReadPin>
  8000d80:	4603      	mov	r3, r0
  8000d82:	2b00      	cmp	r3, #0
- 8000d84:	d002      	beq.n	8000d8c <DHT_Check_Reponse+0x38>
+ 8000d84:	d002      	beq.n	8000d8c <DHT_Check_Response+0x38>
  8000d86:	2301      	movs	r3, #1
  8000d88:	71fb      	strb	r3, [r7, #7]
- 8000d8a:	e001      	b.n	8000d90 <DHT_Check_Reponse+0x3c>
+ 8000d8a:	e001      	b.n	8000d90 <DHT_Check_Response+0x3c>
 		else Response = -1;
  8000d8c:	23ff      	movs	r3, #255	; 0xff
  8000d8e:	71fb      	strb	r3, [r7, #7]
 	}
-	while ((HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)));     // wait for the pin to go low
+	while ((HAL_GPIO_ReadPin (DHT11_PORT, DHT11_PIN)));   // wait for the pin to go low
  8000d90:	bf00      	nop
  8000d92:	2180      	movs	r1, #128	; 0x80
- 8000d94:	4805      	ldr	r0, [pc, #20]	; (8000dac <DHT_Check_Reponse+0x58>)
+ 8000d94:	4805      	ldr	r0, [pc, #20]	; (8000dac <DHT_Check_Response+0x58>)
  8000d96:	f000 fec7 	bl	8001b28 <HAL_GPIO_ReadPin>
  8000d9a:	4603      	mov	r3, r0
  8000d9c:	2b00      	cmp	r3, #0
- 8000d9e:	d1f8      	bne.n	8000d92 <DHT_Check_Reponse+0x3e>
+ 8000d9e:	d1f8      	bne.n	8000d92 <DHT_Check_Response+0x3e>
+
 	return Response;
  8000da0:	79fb      	ldrb	r3, [r7, #7]
 }
@@ -1456,109 +1457,111 @@ int main(void)
  8000f10:	492a      	ldr	r1, [pc, #168]	; (8000fbc <main+0xd4>)
  8000f12:	482b      	ldr	r0, [pc, #172]	; (8000fc0 <main+0xd8>)
  8000f14:	f002 f97e 	bl	8003214 <lcd_i2c_init>
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 //	  Display_Temp(temperature);
 //	  Display_Humid(humidity);
+	  Display_Temp(temperature);
+ 8000f18:	4b2a      	ldr	r3, [pc, #168]	; (8000fc4 <main+0xdc>)
+ 8000f1a:	681b      	ldr	r3, [r3, #0]
+ 8000f1c:	4618      	mov	r0, r3
+ 8000f1e:	f7ff ff8f 	bl	8000e40 <Display_Temp>
+	  Display_Humid(humidity);
+ 8000f22:	4b29      	ldr	r3, [pc, #164]	; (8000fc8 <main+0xe0>)
+ 8000f24:	681b      	ldr	r3, [r3, #0]
+ 8000f26:	4618      	mov	r0, r3
+ 8000f28:	f7ff ffb4 	bl	8000e94 <Display_Humid>
 
 	  DHT11_Start();
- 8000f18:	f7ff fefe 	bl	8000d18 <DHT11_Start>
-	  presence = DHT_Check_Reponse();
- 8000f1c:	f7ff ff1a 	bl	8000d54 <DHT_Check_Reponse>
- 8000f20:	4603      	mov	r3, r0
- 8000f22:	461a      	mov	r2, r3
- 8000f24:	4b27      	ldr	r3, [pc, #156]	; (8000fc4 <main+0xdc>)
- 8000f26:	701a      	strb	r2, [r3, #0]
+ 8000f2c:	f7ff fef4 	bl	8000d18 <DHT11_Start>
+	  presence = DHT_Check_Response();
+ 8000f30:	f7ff ff10 	bl	8000d54 <DHT_Check_Response>
+ 8000f34:	4603      	mov	r3, r0
+ 8000f36:	461a      	mov	r2, r3
+ 8000f38:	4b24      	ldr	r3, [pc, #144]	; (8000fcc <main+0xe4>)
+ 8000f3a:	701a      	strb	r2, [r3, #0]
 	  Hum_byte1 = DHT11_Read();
- 8000f28:	f7ff ff42 	bl	8000db0 <DHT11_Read>
- 8000f2c:	4603      	mov	r3, r0
- 8000f2e:	461a      	mov	r2, r3
- 8000f30:	4b25      	ldr	r3, [pc, #148]	; (8000fc8 <main+0xe0>)
- 8000f32:	701a      	strb	r2, [r3, #0]
+ 8000f3c:	f7ff ff38 	bl	8000db0 <DHT11_Read>
+ 8000f40:	4603      	mov	r3, r0
+ 8000f42:	461a      	mov	r2, r3
+ 8000f44:	4b22      	ldr	r3, [pc, #136]	; (8000fd0 <main+0xe8>)
+ 8000f46:	701a      	strb	r2, [r3, #0]
 	  Hum_byte2 = DHT11_Read();
- 8000f34:	f7ff ff3c 	bl	8000db0 <DHT11_Read>
- 8000f38:	4603      	mov	r3, r0
- 8000f3a:	461a      	mov	r2, r3
- 8000f3c:	4b23      	ldr	r3, [pc, #140]	; (8000fcc <main+0xe4>)
- 8000f3e:	701a      	strb	r2, [r3, #0]
+ 8000f48:	f7ff ff32 	bl	8000db0 <DHT11_Read>
+ 8000f4c:	4603      	mov	r3, r0
+ 8000f4e:	461a      	mov	r2, r3
+ 8000f50:	4b20      	ldr	r3, [pc, #128]	; (8000fd4 <main+0xec>)
+ 8000f52:	701a      	strb	r2, [r3, #0]
 	  Temp_byte1 = DHT11_Read();
- 8000f40:	f7ff ff36 	bl	8000db0 <DHT11_Read>
- 8000f44:	4603      	mov	r3, r0
- 8000f46:	461a      	mov	r2, r3
- 8000f48:	4b21      	ldr	r3, [pc, #132]	; (8000fd0 <main+0xe8>)
- 8000f4a:	701a      	strb	r2, [r3, #0]
+ 8000f54:	f7ff ff2c 	bl	8000db0 <DHT11_Read>
+ 8000f58:	4603      	mov	r3, r0
+ 8000f5a:	461a      	mov	r2, r3
+ 8000f5c:	4b1e      	ldr	r3, [pc, #120]	; (8000fd8 <main+0xf0>)
+ 8000f5e:	701a      	strb	r2, [r3, #0]
 	  Temp_byte2 = DHT11_Read();
- 8000f4c:	f7ff ff30 	bl	8000db0 <DHT11_Read>
- 8000f50:	4603      	mov	r3, r0
- 8000f52:	461a      	mov	r2, r3
- 8000f54:	4b1f      	ldr	r3, [pc, #124]	; (8000fd4 <main+0xec>)
- 8000f56:	701a      	strb	r2, [r3, #0]
+ 8000f60:	f7ff ff26 	bl	8000db0 <DHT11_Read>
+ 8000f64:	4603      	mov	r3, r0
+ 8000f66:	461a      	mov	r2, r3
+ 8000f68:	4b1c      	ldr	r3, [pc, #112]	; (8000fdc <main+0xf4>)
+ 8000f6a:	701a      	strb	r2, [r3, #0]
 	  SUM=DHT11_Read();
- 8000f58:	f7ff ff2a 	bl	8000db0 <DHT11_Read>
- 8000f5c:	4603      	mov	r3, r0
- 8000f5e:	b29a      	uxth	r2, r3
- 8000f60:	4b1d      	ldr	r3, [pc, #116]	; (8000fd8 <main+0xf0>)
- 8000f62:	801a      	strh	r2, [r3, #0]
-	  TEMP = Temp_byte1;
- 8000f64:	4b1a      	ldr	r3, [pc, #104]	; (8000fd0 <main+0xe8>)
- 8000f66:	781b      	ldrb	r3, [r3, #0]
- 8000f68:	b29a      	uxth	r2, r3
- 8000f6a:	4b1c      	ldr	r3, [pc, #112]	; (8000fdc <main+0xf4>)
- 8000f6c:	801a      	strh	r2, [r3, #0]
-	  HUM = Hum_byte1;
- 8000f6e:	4b16      	ldr	r3, [pc, #88]	; (8000fc8 <main+0xe0>)
- 8000f70:	781b      	ldrb	r3, [r3, #0]
+ 8000f6c:	f7ff ff20 	bl	8000db0 <DHT11_Read>
+ 8000f70:	4603      	mov	r3, r0
  8000f72:	b29a      	uxth	r2, r3
  8000f74:	4b1a      	ldr	r3, [pc, #104]	; (8000fe0 <main+0xf8>)
  8000f76:	801a      	strh	r2, [r3, #0]
+	  TEMP = Temp_byte1;
+ 8000f78:	4b17      	ldr	r3, [pc, #92]	; (8000fd8 <main+0xf0>)
+ 8000f7a:	781b      	ldrb	r3, [r3, #0]
+ 8000f7c:	b29a      	uxth	r2, r3
+ 8000f7e:	4b19      	ldr	r3, [pc, #100]	; (8000fe4 <main+0xfc>)
+ 8000f80:	801a      	strh	r2, [r3, #0]
+	  HUM = Hum_byte1;
+ 8000f82:	4b13      	ldr	r3, [pc, #76]	; (8000fd0 <main+0xe8>)
+ 8000f84:	781b      	ldrb	r3, [r3, #0]
+ 8000f86:	b29a      	uxth	r2, r3
+ 8000f88:	4b17      	ldr	r3, [pc, #92]	; (8000fe8 <main+0x100>)
+ 8000f8a:	801a      	strh	r2, [r3, #0]
 
 	  temperature =  (float) TEMP;
- 8000f78:	4b18      	ldr	r3, [pc, #96]	; (8000fdc <main+0xf4>)
- 8000f7a:	881b      	ldrh	r3, [r3, #0]
- 8000f7c:	4618      	mov	r0, r3
- 8000f7e:	f7ff fe39 	bl	8000bf4 <__aeabi_ui2f>
- 8000f82:	4603      	mov	r3, r0
- 8000f84:	4a17      	ldr	r2, [pc, #92]	; (8000fe4 <main+0xfc>)
- 8000f86:	6013      	str	r3, [r2, #0]
+ 8000f8c:	4b15      	ldr	r3, [pc, #84]	; (8000fe4 <main+0xfc>)
+ 8000f8e:	881b      	ldrh	r3, [r3, #0]
+ 8000f90:	4618      	mov	r0, r3
+ 8000f92:	f7ff fe2f 	bl	8000bf4 <__aeabi_ui2f>
+ 8000f96:	4603      	mov	r3, r0
+ 8000f98:	4a0a      	ldr	r2, [pc, #40]	; (8000fc4 <main+0xdc>)
+ 8000f9a:	6013      	str	r3, [r2, #0]
 	  humidity = (float) HUM;
- 8000f88:	4b15      	ldr	r3, [pc, #84]	; (8000fe0 <main+0xf8>)
- 8000f8a:	881b      	ldrh	r3, [r3, #0]
- 8000f8c:	4618      	mov	r0, r3
- 8000f8e:	f7ff fe31 	bl	8000bf4 <__aeabi_ui2f>
- 8000f92:	4603      	mov	r3, r0
- 8000f94:	4a14      	ldr	r2, [pc, #80]	; (8000fe8 <main+0x100>)
- 8000f96:	6013      	str	r3, [r2, #0]
+ 8000f9c:	4b12      	ldr	r3, [pc, #72]	; (8000fe8 <main+0x100>)
+ 8000f9e:	881b      	ldrh	r3, [r3, #0]
+ 8000fa0:	4618      	mov	r0, r3
+ 8000fa2:	f7ff fe27 	bl	8000bf4 <__aeabi_ui2f>
+ 8000fa6:	4603      	mov	r3, r0
+ 8000fa8:	4a07      	ldr	r2, [pc, #28]	; (8000fc8 <main+0xe0>)
+ 8000faa:	6013      	str	r3, [r2, #0]
 
-	  Display_Temp(temperature);
- 8000f98:	4b12      	ldr	r3, [pc, #72]	; (8000fe4 <main+0xfc>)
- 8000f9a:	681b      	ldr	r3, [r3, #0]
- 8000f9c:	4618      	mov	r0, r3
- 8000f9e:	f7ff ff4f 	bl	8000e40 <Display_Temp>
-	  Display_Humid(humidity);
- 8000fa2:	4b11      	ldr	r3, [pc, #68]	; (8000fe8 <main+0x100>)
- 8000fa4:	681b      	ldr	r3, [r3, #0]
- 8000fa6:	4618      	mov	r0, r3
- 8000fa8:	f7ff ff74 	bl	8000e94 <Display_Humid>
+
 
 	  HAL_Delay(500);
  8000fac:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
  8000fb0:	f000 fb2e 	bl	8001610 <HAL_Delay>
-	  DHT11_Start();
+	  Display_Temp(temperature);
  8000fb4:	e7b0      	b.n	8000f18 <main+0x30>
  8000fb6:	bf00      	nop
  8000fb8:	2000024c 	.word	0x2000024c
  8000fbc:	200001f8 	.word	0x200001f8
  8000fc0:	20000294 	.word	0x20000294
- 8000fc4:	200002b4 	.word	0x200002b4
- 8000fc8:	200002a0 	.word	0x200002a0
- 8000fcc:	200002a1 	.word	0x200002a1
- 8000fd0:	200002a2 	.word	0x200002a2
- 8000fd4:	200002a3 	.word	0x200002a3
- 8000fd8:	200002a4 	.word	0x200002a4
- 8000fdc:	200002a8 	.word	0x200002a8
- 8000fe0:	200002a6 	.word	0x200002a6
- 8000fe4:	200002ac 	.word	0x200002ac
- 8000fe8:	200002b0 	.word	0x200002b0
+ 8000fc4:	200002ac 	.word	0x200002ac
+ 8000fc8:	200002b0 	.word	0x200002b0
+ 8000fcc:	200002b4 	.word	0x200002b4
+ 8000fd0:	200002a0 	.word	0x200002a0
+ 8000fd4:	200002a1 	.word	0x200002a1
+ 8000fd8:	200002a2 	.word	0x200002a2
+ 8000fdc:	200002a3 	.word	0x200002a3
+ 8000fe0:	200002a4 	.word	0x200002a4
+ 8000fe4:	200002a8 	.word	0x200002a8
+ 8000fe8:	200002a6 	.word	0x200002a6
 
 08000fec <SystemClock_Config>:
 /**

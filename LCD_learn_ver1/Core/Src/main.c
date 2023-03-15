@@ -101,7 +101,7 @@ int main(void)
 //  lcd_set_cursor(&p_lcd, 0, 0);
 //  lcd_send_string(&p_lcd, "phamtuan");
 
-  char str[] = "phamtuan";
+  char str1[] = "xin chao pham tuan";
 
   /* USER CODE END 2 */
 
@@ -120,22 +120,33 @@ int main(void)
 //		  lcd_send_string(&p_lcd, &str[strlen(str) - i]);
 //		  HAL_Delay(500);
 //	  }
-	  for (int i = 0; i < 16 - strlen(str); i++)
-	  {
-		  lcd_clear(&p_lcd);
-		  lcd_set_cursor(&p_lcd, i, 0);
-		  lcd_send_string(&p_lcd, "phamtuan");
-		  HAL_Delay(500);
-	  }
-	  for (int i = 16 - strlen(str); i < 16; i++ )
-	  {
-		  lcd_clear(&p_lcd);
-		  lcd_set_cursor(&p_lcd, i, 0);
-		  lcd_send_string(&p_lcd, "phamtuan");
-		  lcd_set_cursor(&p_lcd, 0, 0);
-		  lcd_send_string(&p_lcd, &str[16 - i]);
-		  HAL_Delay(500);
-	  }
+//	  for (int i = 0; i < 16 - strlen(str1); i++)
+//	  {
+//		  lcd_clear(&p_lcd);
+//		  lcd_set_cursor(&p_lcd, i, 0);
+//		  lcd_send_string(&p_lcd, "xin chao pham tuan");
+//		  HAL_Delay(500);
+//	  }
+//	  for (int i = 16 - strlen(str1); i < 16; i++ )
+//	  {
+//		  lcd_clear(&p_lcd);
+//		  lcd_set_cursor(&p_lcd, i, 0);
+//		  lcd_send_string(&p_lcd, "phamtuan");
+//		  lcd_set_cursor(&p_lcd, 0, 0);
+//		  lcd_send_string(&p_lcd, &str1[16 - i]);
+//		  HAL_Delay(500);
+//	  }
+	  lcd_clear(&p_lcd);
+	  lcd_set_cursor(&p_lcd, 0, 0);
+	  lcd_send_string(&p_lcd, "WELCOME TO P.1008");
+	  lcd_set_cursor(&p_lcd, 0, 1);
+	  lcd_send_string(&p_lcd, "The boss of this room:");
+	  lcd_set_cursor(&p_lcd, 0, 2);
+	  lcd_send_string(&p_lcd, "Pham Ho Anh Tuan");
+	  lcd_set_cursor(&p_lcd, 0, 3);
+	  lcd_send_string(&p_lcd, "HAVE A NICE DAY!");
+	  HAL_Delay(500);
+
   }
   /* USER CODE END 3 */
 }
