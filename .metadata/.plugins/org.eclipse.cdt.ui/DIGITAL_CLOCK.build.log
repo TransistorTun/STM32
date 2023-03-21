@@ -1,0 +1,41 @@
+23:19:24 **** Incremental Build of configuration Debug for project DIGITAL_CLOCK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I"C:/Users/Tuan/STM32CubeIDE/workspace_1.11.2/DIGITAL_CLOCK/LIBS" -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:329:4: warning: implicit declaration of function 'Clock_Handle' [-Wimplicit-function-declaration]
+  329 |    Clock_Handle();
+      |    ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'MODE_Handle':
+../Core/Src/main.c:163:38: warning: 'DISTANCE: ' directive writing 10 bytes into a region of size 5 [-Wformat-overflow=]
+  163 |         sprintf(data_distance, "DISTANCE: %2d", distance);
+      |                                 ~~~~~^~~~~
+../Core/Src/main.c:163:9: note: 'sprintf' output between 13 and 14 bytes into a destination of size 5
+  163 |         sprintf(data_distance, "DISTANCE: %2d", distance);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:144:35: warning: 'Tempe: ' directive writing 7 bytes into a region of size 6 [-Wformat-overflow=]
+  144 |         sprintf(data_temp, "Tempe: %.2f C", temperature);
+      |                             ~~~~~~^
+../Core/Src/main.c:144:28: note: assuming directive output of 4 bytes
+  144 |         sprintf(data_temp, "Tempe: %.2f C", temperature);
+      |                            ^~~~~~~~~~~~~~~
+../Core/Src/main.c:144:9: note: 'sprintf' output between 13 and 323 bytes into a destination of size 6
+  144 |         sprintf(data_temp, "Tempe: %.2f C", temperature);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:147:34: warning: '%.2f' directive writing between 3 and 313 bytes into a region of size 1 [-Wformat-overflow=]
+  147 |         sprintf(data_humi, "Hum: %.2f %%", humidity);
+      |                                  ^~~~
+../Core/Src/main.c:147:28: note: assuming directive output of 4 bytes
+  147 |         sprintf(data_humi, "Hum: %.2f %%", humidity);
+      |                            ^~~~~~~~~~~~~~
+../Core/Src/main.c:147:9: note: 'sprintf' output between 11 and 321 bytes into a destination of size 6
+  147 |         sprintf(data_humi, "Hum: %.2f %%", humidity);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "DIGITAL_CLOCK.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Tuan\STM32CubeIDE\workspace_1.11.2\DIGITAL_CLOCK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DIGITAL_CLOCK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+c:\st\stm32cubeide_1.11.2ver2\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Tuan/STM32CubeIDE/workspace_1.11.2/DIGITAL_CLOCK/Debug/../Core/Src/main.c:329: undefined reference to `Clock_Handle'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: DIGITAL_CLOCK.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+23:19:26 Build Failed. 3 errors, 4 warnings. (took 2s.22ms)
+

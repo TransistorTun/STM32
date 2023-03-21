@@ -1,21 +1,17 @@
-01:47:37 **** Incremental Build of configuration Debug for project LCD_learn_ver1 ****
+03:12:10 **** Incremental Build of configuration Debug for project LCD_learn_ver1 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/Tuan/STM32CubeIDE/workspace_1.11.2/LCD_learn_ver1/Lib" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:104:8: warning: unused variable 'str1' [-Wunused-variable]
-  104 |   char str1[] = "xin chao pham tuan";
-      |        ^~~~
 arm-none-eabi-gcc -o "LCD_learn_ver1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Tuan\STM32CubeIDE\workspace_1.11.2\LCD_learn_ver1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD_learn_ver1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LCD_learn_ver1.elf
  
 arm-none-eabi-size   LCD_learn_ver1.elf 
 arm-none-eabi-objdump -h -S  LCD_learn_ver1.elf  > "LCD_learn_ver1.list"
    text	   data	    bss	    dec	    hex	filename
-   9900	     20	   1820	  11740	   2ddc	LCD_learn_ver1.elf
+   9852	    100	   1820	  11772	   2dfc	LCD_learn_ver1.elf
 Finished building: default.size.stdout
  
 Finished building: LCD_learn_ver1.list
  
 
-01:47:38 Build Finished. 0 errors, 1 warnings. (took 555ms)
+03:12:11 Build Finished. 0 errors, 0 warnings. (took 670ms)
 

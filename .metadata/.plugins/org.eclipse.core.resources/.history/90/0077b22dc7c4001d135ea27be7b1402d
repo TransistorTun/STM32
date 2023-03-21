@@ -1,0 +1,25 @@
+/*
+ * ROTARY_ENCODER.h
+ *
+ *  Created on: Mar 17, 2023
+ *      Author: Tuan
+ */
+
+#ifndef ROTARY_ENCODER_H_
+#define ROTARY_ENCODER_H_
+
+#include "main.h"
+#include "stm32f1xx_hal.h"
+
+typedef struct
+{
+	TIM_HandleTypeDef *re_timer;
+	uint32_t counter;
+	int16_t count;
+	int16_t current_position;
+	int16_t last_position;
+	float speed;
+}RE_HandleTypedef;
+
+extern RE_HandleTypedef rotary_encoder;
+#endif /* ROTARY_ENCODER_H_ */

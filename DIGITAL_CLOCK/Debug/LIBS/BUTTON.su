@@ -1,0 +1,4 @@
+../LIBS/BUTTON.c:10:13:BUTTON_Pressing_Callback	16	static
+../LIBS/BUTTON.c:14:13:BUTTON_Releasing_Callback	16	static
+../LIBS/BUTTON.c:26:6:BUTTON_Init	24	static
+../LIBS/BUTTON.c:43:6:BUTTON_Handle	24	static

@@ -1,0 +1,38 @@
+/*
+ * ROTARY_ENCODER.c
+ *
+ *  Created on: Mar 17, 2023
+ *      Author: Tuan
+ */
+
+#include "ROTARY_ENCODER.h"
+#include "stm32f1xx_hal.h"
+
+__weak void RE_Clockwise_Callback(RE_HandleTypedef *p_re)
+{
+	;
+}
+
+__weak void RE_Counter_Clockwise_Callback (RE_HandleTypedef *p_re)
+{
+	;
+}
+
+void HAL_TIM_IC_CaptureCallback (TIM_HandleTypeDef *htim)
+{
+	if(htim->Instance == rotary_encoder.timer->Instance)
+	{
+		RE_
+	}
+}
+
+void RE_Init (RE_HandleTypedef *p_re, TIM_HandleTypeDef *p_timer)
+{
+	p_re->current_position = 0;
+
+}
+
+void RE_Get_Value ()
+{
+
+}

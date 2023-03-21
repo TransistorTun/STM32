@@ -1,0 +1,3 @@
+../LIBS/delay.c:11:6:DELAY_Time_Init	16	static
+../LIBS/delay.c:17:6:DELAY_Time_Us	16	static
+../LIBS/delay.c:27:6:DELAY_Time_Ms	16	static

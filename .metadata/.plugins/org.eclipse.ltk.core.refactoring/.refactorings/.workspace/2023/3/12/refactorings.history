@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;DIGITAL_CLOCK/LIBS/software.c&apos;" deleteContents="false" description="Delete resource &apos;DIGITAL_CLOCK/LIBS/software.c&apos;" element1="/DIGITAL_CLOCK/LIBS/software.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1679335464335"/>&#x0A;<refactoring comment="Delete resource &apos;DIGITAL_CLOCK/LIBS/software.h&apos;" deleteContents="false" description="Delete resource &apos;DIGITAL_CLOCK/LIBS/software.h&apos;" element1="/DIGITAL_CLOCK/LIBS/software.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1679335468448"/>
+</session>

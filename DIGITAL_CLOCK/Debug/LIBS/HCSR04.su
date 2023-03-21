@@ -1,0 +1,4 @@
+../LIBS/HCSR04.c:13:13:HCSR04_Delay_Init	16	static
+../LIBS/HCSR04.c:18:13:SR04_Delay_Us	16	static
+../LIBS/HCSR04.c:24:6:HCSR04_Init	24	static
+../LIBS/HCSR04.c:35:9:HCSR04_Get_Distance	24	static

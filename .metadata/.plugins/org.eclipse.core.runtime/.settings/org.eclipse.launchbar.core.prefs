@@ -1,11 +1,14 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led7_segment Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DHT11 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD_learn_ver1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DS3231 Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led7_segment Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DHT11 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DS3231 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ROTARY_ENCODER Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HCSR04_2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DIGITAL_CLOCK Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD_learn_ver1 Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DHT11\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DHT11\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DIGITAL_CLOCK\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DS3231\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD_learn_ver1\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD_learn_ver1\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ROTARY_ENCODER\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led7_segment\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led7_segment\ Debug/activeLaunchTarget=null\:---

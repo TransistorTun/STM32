@@ -96,6 +96,6 @@ void lcd_send_string (LCD_I2C_HandleTypeDef *p_LCD, char *str)
 void lcd_clear (LCD_I2C_HandleTypeDef *p_LCD)
 {
 	lcd_send_cmd(p_LCD, lcd_cleardisplay);
-	delay_us(5000);
+	delay_us(1000);
 	lcd_set_cursor(p_LCD, 0, 0);
 }

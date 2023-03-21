@@ -1,0 +1,15 @@
+/*
+ * ROTARY_ENCODER.c
+ *
+ *  Created on: Mar 17, 2023
+ *      Author: Tuan
+ */
+
+#include "ROTARY_ENCODER.h"
+#include "stm32f1xx_hal.h"
+
+void RE_Init (RE_HandleTypedef *p_re, TIM_HandleTypeDef *p_timer)
+{
+
+}
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DIGITAL_CLOCK/LIBS/SOFTWARE.c&apos; to &apos;software.c&apos;" description="Rename resource &apos;SOFTWARE.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="LIBS/SOFTWARE.c" name="software.c" stamp="1679154474787" updateReferences="true"/>
+</session>

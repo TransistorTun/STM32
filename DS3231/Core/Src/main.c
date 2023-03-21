@@ -106,7 +106,7 @@ int main(void)
 
   DS3231_Init(&DS3231, &hi2c1);
   //DS3231_SetTime(&DS3231, 0, 27, 11);
-  DS3231_SetDate(&DS3231, 23, 3, 15, 1);
+  //DS3231_SetDate(&DS3231, 5, 16, 3, 23);
 
   /* USER CODE END 2 */
 
@@ -126,7 +126,7 @@ int main(void)
 	  sprintf(time, "%02d:%02d:%02d", DS3231.Hour, DS3231.Min, DS3231.Sec);
 	  lcd_set_cursor(&p_lcd, 0, 1);
 	  lcd_send_string(&p_lcd, time);
-	  sprintf(time, "%02d-%02d-%02d-20%02d", DS3231.Date, DS3231.Month, DS3231.Year);
+	  sprintf(time, "Thu%2d  %02d-%02d-20%02d",DS3231.Day, DS3231.Date, DS3231.Month, DS3231.Year);
 	  lcd_set_cursor(&p_lcd, 0, 2);
 	  lcd_send_string(&p_lcd, time);
 	  lcd_set_cursor(&p_lcd, 0, 3);

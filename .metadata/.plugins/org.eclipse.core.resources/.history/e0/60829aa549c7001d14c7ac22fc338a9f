@@ -1,0 +1,14 @@
+/*
+ * SOFTWARE.c
+ *
+ *  Created on: Mar 18, 2023
+ *      Author: Tuan
+ */
+
+#include "software.h"
+#include "lcd_i2c.h"
+
+void Clock_Init()
+{
+
+}

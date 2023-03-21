@@ -47,7 +47,7 @@ I2C_HandleTypeDef hi2c2;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-LCD_I2C_HandleTypeDef p_lcd;
+LCD_I2C_HandleTypeDef lcd_1;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -62,7 +62,10 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+char MODE1[] = "MODE1: TEMP & HUMID";
+char MODE2[] = "MODE2: DISTANCE";
+char MODE3[] = "MODE3: DIGITAL CLOCK";
+char MODE4[] = "MODE4: RESET TIME";
 /* USER CODE END 0 */
 
 /**
@@ -97,11 +100,9 @@ int main(void)
   MX_I2C2_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  lcd_i2c_init(&p_lcd, &hi2c1,16,2,0x27<<1);
-//  lcd_set_cursor(&p_lcd, 0, 0);
-//  lcd_send_string(&p_lcd, "phamtuan");
+  lcd_i2c_init(&lcd_1, &hi2c1,20,4,0x27<<1);
 
-  char str1[] = "xin chao pham tuan";
+
 
   /* USER CODE END 2 */
 
@@ -112,7 +113,27 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	  lcd_set_cursor(&lcd_1, 0, 0);
+	  lcd_send_string(&lcd_1, MODE1);
+	  lcd_set_cursor(&lcd_1, 0, 1);
+	  lcd_send_string(&lcd_1, MODE2);
+	  lcd_set_cursor(&lcd_1, 0, 2);
+	  lcd_send_string(&lcd_1, MODE3);
+	  lcd_set_cursor(&lcd_1, 0, 3);
+	  lcd_send_string(&lcd_1, MODE4);
+	  HAL_Delay(1000);
+	  lcd_clear(&lcd_1);
+	  lcd_set_cursor(&lcd_1, 0, 0);
+	  lcd_send_string(&lcd_1, MODE1);
+	  lcd_set_cursor(&lcd_1, 0, 1);
+	  lcd_send_string(&lcd_1, MODE2);
+	  lcd_set_cursor(&lcd_1, 0, 2);
+	  lcd_send_string(&lcd_1, MODE3);
+//	  lcd_set_cursor(&lcd_1, 0, 3);
+//	  lcd_send_string(&lcd_1, MODE4);
+	  HAL_Delay(1000);
+	  lcd_set_cursor(&lcd_1, 0, 3);
+	  lcd_send_string(&lcd_1, MODE4);
 //	  for (int i = 0; i < strlen(str); i++)
 //	  {
 //		  lcd_clear(&p_lcd);
@@ -136,16 +157,16 @@ int main(void)
 //		  lcd_send_string(&p_lcd, &str1[16 - i]);
 //		  HAL_Delay(500);
 //	  }
-	  lcd_clear(&p_lcd);
-	  lcd_set_cursor(&p_lcd, 0, 0);
-	  lcd_send_string(&p_lcd, "WELCOME TO P.1008");
-	  lcd_set_cursor(&p_lcd, 0, 1);
-	  lcd_send_string(&p_lcd, "The boss of this room:");
-	  lcd_set_cursor(&p_lcd, 0, 2);
-	  lcd_send_string(&p_lcd, "Pham Ho Anh Tuan");
-	  lcd_set_cursor(&p_lcd, 0, 3);
-	  lcd_send_string(&p_lcd, "HAVE A NICE DAY!");
-	  HAL_Delay(500);
+//	  lcd_clear(&p_lcd);
+//	  lcd_set_cursor(&p_lcd, 0, 0);
+//	  lcd_send_string(&p_lcd, "WELCOME TO P.1008");
+//	  lcd_set_cursor(&p_lcd, 0, 1);
+//	  lcd_send_string(&p_lcd, "The boss of this room:");
+//	  lcd_set_cursor(&p_lcd, 0, 2);
+//	  lcd_send_string(&p_lcd, "Pham Ho Anh Tuan");
+//	  lcd_set_cursor(&p_lcd, 0, 3);
+//	  lcd_send_string(&p_lcd, "HAVE A NICE DAY!");
+//	  HAL_Delay(500);
 
   }
   /* USER CODE END 3 */

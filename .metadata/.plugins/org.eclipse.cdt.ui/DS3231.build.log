@@ -1,23 +1,24 @@
-23:44:51 **** Incremental Build of configuration Debug for project DS3231 ****
+00:27:32 **** Incremental Build of configuration Debug for project DS3231 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I"C:/Users/Tuan/STM32CubeIDE/workspace_1.11.2/DS3231/Lib" -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:129:39: warning: format '%d' expects a matching 'int' argument [-Wformat=]
-  129 |    sprintf(time, "%02d-%02d-%02d-20%02d", DS3231.Date, DS3231.Month, DS3231.Year);
-      |                                    ~~~^
-      |                                       |
-      |                                       int
+../Core/Src/main.c:129:39: warning: '%02d' directive writing between 2 and 3 bytes into a region of size 0 [-Wformat-overflow=]
+  129 |    sprintf(time, "Thu%2d  %02d-%02d-20%02d",DS3231.Day, DS3231.Date, DS3231.Month, DS3231.Year);
+      |                                       ^~~~
+../Core/Src/main.c:129:4: note: 'sprintf' output between 18 and 22 bytes into a destination of size 15
+  129 |    sprintf(time, "Thu%2d  %02d-%02d-20%02d",DS3231.Day, DS3231.Date, DS3231.Month, DS3231.Year);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "DS3231.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Tuan\STM32CubeIDE\workspace_1.11.2\DS3231\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DS3231.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: DS3231.elf
  
 arm-none-eabi-size   DS3231.elf 
 arm-none-eabi-objdump -h -S  DS3231.elf  > "DS3231.list"
    text	   data	    bss	    dec	    hex	filename
-  15912	    120	   1808	  17840	   45b0	DS3231.elf
+  15924	    120	   1808	  17852	   45bc	DS3231.elf
 Finished building: default.size.stdout
  
 Finished building: DS3231.list
  
 
-23:44:52 Build Finished. 0 errors, 1 warnings. (took 737ms)
+00:27:33 Build Finished. 0 errors, 1 warnings. (took 541ms)
 

@@ -1,0 +1,13 @@
+/*
+ * SOFTWARE.c
+ *
+ *  Created on: Mar 18, 2023
+ *      Author: Tuan
+ */
+
+#include "software.h"
+
+void Clock_Init()
+{
+	lcd_i2c_init(p_LCD, p_hi2c, p_col, p_row, p_Slave_Address);
+}
