@@ -326,7 +326,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	  Clock_Handle();
   }
   /* USER CODE END 3 */
 }
